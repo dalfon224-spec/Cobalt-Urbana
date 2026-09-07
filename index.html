@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cobalt Urbana — Infraestructura financiera de alto volumen</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        cobalt: {
+          bg: '#070F1E',
+          card: '#0D1B31',
+          card2: '#0F2040',
+          accent: '#2EB5E5',
+          accentHover: '#3CC2F0',
+          light: '#8AD9F5',
+          dark: '#081425',
+          border: 'rgba(46,181,229,0.18)',
+          muted: '#8EA0BB'
+        }
+      },
+      fontFamily: {
+        sans: ['Inter','sans-serif'],
+        display: ['Space Grotesk','sans-serif']
+      }
+    }
+  }
+}
+</script>
+<style>
+* { scroll-behavior: smooth; }
+body { background:#070F1E; color:#E8EEF6; overflow-x:hidden; }
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.glow-btn {
+  box-shadow: 0 0 24px rgba(46,181,229,0.45), 0 4px 20px rgba(46,181,229,0.25);
+}
+.glow-card {
+  box-shadow: 0 0 30px rgba(46,181,229,0.15), inset 0 1px 0 rgba(255,255,255,0.05);
+}
+.marquee { animation: marquee 30s linear infinite; }
+@keyframes marquee { 0% { transform: translateX(0)} 100% { transform: translateX(-50%)} }
+.dot { width:6px; height:6px; background:#2EB5E5; border-radius:50%; box-shadow:0 0 6px #2EB5E5; }
+.calendly-inline-widget { min-width:0 !important; width:100%; height:800px; }
+@media (max-width: 640px) { .calendly-inline-widget { height:720px; } }
+.card-lift { transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease; }
+.card-lift:hover { transform: translateY(-6px); box-shadow: 0 10px 30px rgba(46,181,229,0.18), 0 0 20px rgba(46,181,229,0.12); border-color: rgba(46,181,229,0.35) !important; }
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } .card-lift, .card-lift:hover { transform: none; } .marquee { animation: none; } }
+</style>
+</head>
+<body class="font-sans antialiased">
+<!-- HEADER -->
+<header class="relative z-50 border-b border-white/[0.04]">
+  <div class="absolute inset-0 grid-bg opacity-60 pointer-events-none"></div>
+  <div class="relative max-w-[1220px] mx-auto px-6 py-5 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <!-- Logo Cobalt Urbana -->
+      <div class="flex items-center gap-3">
+        <svg width="34" height="28" viewBox="0 0 38 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 26 L19 2 L34 26" stroke="#2EB5E5" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="14.5" y="13.5" width="3.2" height="12.2" rx="1.4" fill="#2EB5E5"/>
+          <rect x="20.3" y="10.2" width="3.2" height="15.5" rx="1.4" fill="#2EB5E5"/>
+        </svg>
+        <span class="font-display font-bold text-[18px] tracking-[0.08em] text-white">COBALT URBANA</span>
+      </div>
+    </div>
+    <a href="#agendar" class="hidden md:inline-flex items-center gap-2 bg-[#2EB5E5] hover:bg-[#3CC2F0] text-[#070F1E] font-semibold text-[13.5px] px-5 py-[10px] rounded-full glow-btn transition">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+      Agendar consulta
+    </a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="relative overflow-hidden">
+  <div class="absolute inset-0 grid-bg"></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#070F1E]"></div>
+  <div class="relative max-w-[900px] mx-auto px-6 pt-16 pb-10 text-center">
+    <!-- badge -->
+    <div class="inline-flex items-center gap-2 border border-[rgba(46,181,229,0.35)] bg-[#0D1B31] rounded-full px-4 py-1.5 mb-8">
+      <span class="w-2 h-2 rounded-full bg-[#2EB5E5] shadow-[0_0_8px_#2EB5E5]"></span>
+      <span class="text-[11px] tracking-[0.14em] font-semibold text-[#2EB5E5]">INFRAESTRUCTURA FINANCIERA DE ALTO VOLUMEN</span>
+    </div>
+    <h1 class="font-display font-bold text-[42px] md:text-[62px] leading-[0.95] tracking-tight">
+      Movés millones.<br>
+      Un bloqueo no puede<br>
+      <span class="text-[#2EB5E5]">frenarte</span>.
+    </h1>
+    <p class="mt-6 max-w-[640px] mx-auto text-[15px] md:text-[16px] leading-relaxed text-[#9AAFC9]">
+      COBALT URBANA es la infraestructura de cobros y pagos en USDT que sostiene tu operación cuando el volumen es grande y cada minuto detenido te cuesta caro. Sin caídas sorpresivas, sin plata inmovilizada, sin depender de terceros.
+    </p>
+    <a href="#agendar" class="inline-flex items-center gap-2 mt-8 bg-[#2EB5E5] hover:bg-[#3CC2F0] text-[#070F1E] font-bold text-sm px-7 py-3.5 rounded-full glow-btn transition">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+      Hablar con un especialista
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+
+    <!-- stats -->
+    <div class="grid grid-cols-2 gap-4 max-w-[520px] mx-auto mt-12">
+      <div class="bg-[#0A1628] border border-[rgba(46,181,229,0.18)] rounded-2xl py-6 px-4 glow-card card-lift reveal group">
+        <div class="text-[32px] font-black leading-none text-[#2EB5E5] group-hover:scale-105 transition duration-300">24/7</div>
+        <div class="text-[11px] tracking-[0.1em] text-[#8EA0BB] mt-1 font-medium">OPERACIÓN Y SOPORTE REAL</div>
+      </div>
+      <div class="bg-[#0A1628] border border-[rgba(46,181,229,0.18)] rounded-2xl py-6 px-4 glow-card card-lift reveal group">
+        <div class="text-[32px] font-black leading-none text-[#2EB5E5] group-hover:scale-105 transition duration-300">USDT</div>
+        <div class="text-[11px] tracking-[0.1em] text-[#8EA0BB] mt-1 font-medium">COBROS Y PAGOS INTEGRADOS</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- marquee -->
+  <div class="relative border-y border-[rgba(46,181,229,0.12)] bg-[#08111F] overflow-hidden py-3 mt-8">
+    <div class="flex whitespace-nowrap marquee">
+      <span class="flex items-center gap-8 text-[12px] tracking-[0.18em] text-[#7A8EAD]">
+        <span class="flex items-center gap-2"><span class="dot"></span> CERO BLOQUEOS SORPRESA</span>
+        <span class="flex items-center gap-2"><span class="dot"></span> COBROS Y PAGOS EN USDT</span>
+        <span class="flex items-center gap-2"><span class="dot"></span> API PROPIA</span>
+        <span class="flex items-center gap-2"><span class="dot"></span> MÉTRICAS EN TIEMPO REAL</span>
+        <span class="flex items-center gap-2"><span class="dot"></span> SOPORTE 24/7 DEDICADO</span>
+        <span class="flex items-center gap-2"><span class="dot"></span> ONBOARDING ACOMPAÑADO</span>
+        <span class="flex items-center gap-2"><span class="dot"></span> CERO BLOQUEOS SORPRESA</span>
+        <span class="flex items-center gap-2"><span class="dot"></span> COBROS Y PAGOS EN USDT</span>
+        <span class="flex items-center gap-2"><span class="dot"></span> API PROPIA</span>
+        <span class="flex items-center gap-2"><span class="dot"></span> MÉTRICAS EN TIEMPO REAL</span>
+        <span class="flex items-center gap-2"><span class="dot"></span> SOPORTE 24/7 DEDICADO</span>
+        <span class="flex items-center gap-2"><span class="dot"></span> ONBOARDING ACOMPAÑADO</span>
+      </span>
+      <span class="flex items-center gap-8 text-[12px] tracking-[0.18em] text-[#7A8EAD] ml-8">
+        <span class="flex items-center gap-2"><span class="dot"></span> CERO BLOQUEOS SORPRESA</span>
+        <span class="flex items-center gap-2"><span class="dot"></span> COBROS Y PAGOS EN USDT</span>
+        <span class="flex items-center gap-2"><span class="dot"></span> API PROPIA</span>
+        <span class="flex items-center gap-2"><span class="dot"></span> MÉTRICAS EN TIEMPO REAL</span>
+        <span class="flex items-center gap-2"><span class="dot"></span> SOPORTE 24/7 DEDICADO</span>
+        <span class="flex items-center gap-2"><span class="dot"></span> ONBOARDING ACOMPAÑADO</span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN POINTS -->
+<section class="relative py-16">
+  <div class="absolute inset-0 grid-bg opacity-40"></div>
+  <div class="relative max-w-[1100px] mx-auto px-6">
+    <div class="text-center mb-10">
+      <p class="text-[11px] tracking-[0.2em] text-[#2EB5E5] font-semibold mb-3">SI MOVÉS VOLUMEN SERIO, ESTO YA TE PASÓ</p>
+      <h2 class="font-display font-bold text-[30px] md:text-[42px] leading-tight">Cada hora frenada <span class="text-[#2EB5E5]">te cuesta</span><br><span class="text-[#2EB5E5]">plata</span>.</h2>
+    </div>
+    <div class="grid md:grid-cols-2 gap-4">
+      <div class="bg-[#0D1B31] border border-[rgba(46,181,229,0.16)] rounded-2xl p-5 flex gap-3 card-lift reveal group">
+        <span class="flex-shrink-0 w-7 h-7 rounded-full border border-[rgba(46,181,229,0.4)] flex items-center justify-center text-xs font-bold text-[#2EB5E5] group-hover:border-[#2EB5E5] group-hover:bg-[rgba(46,181,229,0.12)] transition duration-300">1</span>
+        <p class="text-[14px] leading-relaxed text-[#C2D0E6]">Comprás cuentas de terceros y se caen sin aviso. Cada caída frena tu operación y te hace perder ventas en tiempo real.</p>
+      </div>
+      <div class="bg-[#0D1B31] border border-[rgba(46,181,229,0.16)] rounded-2xl p-5 flex gap-3 card-lift reveal group">
+        <span class="flex-shrink-0 w-7 h-7 rounded-full border border-[rgba(46,181,229,0.4)] flex items-center justify-center text-xs font-bold text-[#2EB5E5] group-hover:border-[#2EB5E5] group-hover:bg-[rgba(46,181,229,0.12)] transition duration-300">2</span>
+        <p class="text-[14px] leading-relaxed text-[#C2D0E6]">Cuando la cuenta se bloquea, la plata que había adentro queda retenida. No sabés cuándo la recuperarás — ni si la recuperarás.</p>
+      </div>
+      <div class="bg-[#0D1B31] border border-[rgba(46,181,229,0.16)] rounded-2xl p-5 flex gap-3 card-lift reveal group">
+        <span class="flex-shrink-0 w-7 h-7 rounded-full border border-[rgba(46,181,229,0.4)] flex items-center justify-center text-xs font-bold text-[#2EB5E5] group-hover:border-[#2EB5E5] group-hover:bg-[rgba(46,181,229,0.12)] transition duration-300">3</span>
+        <p class="text-[14px] leading-relaxed text-[#C2D0E6]">No tenés métricas confiables. La conciliación depende de planillas, capturas y del humor del que las carga.</p>
+      </div>
+      <div class="bg-[#0D1B31] border border-[rgba(46,181,229,0.16)] rounded-2xl p-5 flex gap-3 card-lift reveal group">
+        <span class="flex-shrink-0 w-7 h-7 rounded-full border border-[rgba(46,181,229,0.4)] flex items-center justify-center text-xs font-bold text-[#2EB5E5] group-hover:border-[#2EB5E5] group-hover:bg-[rgba(46,181,229,0.12)] transition duration-300">4</span>
+        <p class="text-[14px] leading-relaxed text-[#C2D0E6]">Nadie te avisa antes del bloqueo. Te enterás cuando los clientes ya no pueden depositar y el WhatsApp explota.</p>
+      </div>
+      <div class="bg-[#0D1B31] border border-[rgba(46,181,229,0.16)] rounded-2xl p-5 flex gap-3 card-lift reveal group">
+        <span class="flex-shrink-0 w-7 h-7 rounded-full border border-[rgba(46,181,229,0.4)] flex items-center justify-center text-xs font-bold text-[#2EB5E5] group-hover:border-[#2EB5E5] group-hover:bg-[rgba(46,181,229,0.12)] transition duration-300">5</span>
+        <p class="text-[14px] leading-relaxed text-[#C2D0E6]">Cuando algo falla, no hay a quién llamar. Buscás soluciones a las 3am mientras la caja sigue parada.</p>
+      </div>
+      <div class="bg-[#0D1B31] border border-[rgba(46,181,229,0.16)] rounded-2xl p-5 flex gap-3 card-lift reveal group">
+        <span class="flex-shrink-0 w-7 h-7 rounded-full border border-[rgba(46,181,229,0.4)] flex items-center justify-center text-xs font-bold text-[#2EB5E5] group-hover:border-[#2EB5E5] group-hover:bg-[rgba(46,181,229,0.12)] transition duration-300">6</span>
+        <p class="text-[14px] leading-relaxed text-[#C2D0E6]">Corrés atrás del 'mejor porcentaje' y perdés de vista lo que realmente cuesta: la plata frenada y la operación rota.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="relative py-10">
+  <div class="absolute inset-0 grid-bg opacity-30"></div>
+  <div class="relative max-w-[1100px] mx-auto px-6">
+    <div class="text-center mb-10">
+      <p class="text-[11px] tracking-[0.2em] text-[#2EB5E5] font-semibold mb-3">LA SOLUCIÓN</p>
+      <h2 class="font-display font-bold text-[30px] md:text-[42px] leading-tight">Una sola infraestructura.<br><span class="text-[#2EB5E5]">Cero interrupciones.</span></h2>
+      <p class="mt-4 max-w-[620px] mx-auto text-sm leading-relaxed text-[#8EA0BB]">Diseñada para negocios que mueven volumen: e-commerce, marketplaces, plataformas de servicios, entretenimiento, fintechs y cualquier operación donde cada minuto detenido se traduce en pesos perdidos.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-4">
+      <div class="bg-[#0D1B31] border border-[rgba(46,181,229,0.15)] rounded-2xl p-6 card-lift reveal group">
+        <div class="w-9 h-9 rounded-xl border border-[rgba(46,181,229,0.35)] flex items-center justify-center mb-4 text-[#2EB5E5] group-hover:scale-110 group-hover:rotate-3 group-hover:border-[rgba(46,181,229,0.6)] transition duration-300">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><path d="M3 12h18"/></svg>
+        </div>
+        <h3 class="font-bold text-sm text-white mb-2">Cuenta recaudadora exclusiva</h3>
+        <p class="text-[13px] leading-relaxed text-[#9AAFC9]">Una cuenta dedicada a tu negocio, no compartida. Control real sobre cada peso que entra.</p>
+      </div>
+      <div class="bg-[#0D1B31] border border-[rgba(46,181,229,0.15)] rounded-2xl p-6 card-lift reveal group">
+        <div class="w-9 h-9 rounded-xl border border-[rgba(46,181,229,0.35)] flex items-center justify-center mb-4 text-[#2EB5E5] group-hover:scale-110 group-hover:rotate-3 group-hover:border-[rgba(46,181,229,0.6)] transition duration-300">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <h3 class="font-bold text-sm text-white mb-2">API propia lista para integrar</h3>
+        <p class="text-[13px] leading-relaxed text-[#9AAFC9]">Conectás COBALT URBANA a tu sistema en horas. Cobros, pagos y conciliación 100% automatizados.</p>
+      </div>
+      <div class="bg-[#0D1B31] border border-[rgba(46,181,229,0.15)] rounded-2xl p-6 card-lift reveal group">
+        <div class="w-9 h-9 rounded-xl border border-[rgba(46,181,229,0.35)] flex items-center justify-center mb-4 text-[#2EB5E5] group-hover:scale-110 group-hover:rotate-3 group-hover:border-[rgba(46,181,229,0.6)] transition duration-300">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 4-8"/></svg>
+        </div>
+        <h3 class="font-bold text-sm text-white mb-2">Métricas en tiempo real</h3>
+        <p class="text-[13px] leading-relaxed text-[#9AAFC9]">Dashboard claro: qué entra, qué sale y qué está por conciliar. Adiós planillas de Excel.</p>
+      </div>
+      <div class="bg-[#0D1B31] border border-[rgba(46,181,229,0.15)] rounded-2xl p-6 card-lift reveal group">
+        <div class="w-9 h-9 rounded-xl border border-[rgba(46,181,229,0.35)] flex items-center justify-center mb-4 text-[#2EB5E5] group-hover:scale-110 group-hover:rotate-3 group-hover:border-[rgba(46,181,229,0.6)] transition duration-300">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><path d="M7 12h.01M12 12h.01"/></svg>
+        </div>
+        <h3 class="font-bold text-sm text-white mb-2">Cobros y pagos en USDT</h3>
+        <p class="text-[13px] leading-relaxed text-[#9AAFC9]">Recibí y enviá USDT desde la misma plataforma. Cubrí operaciones internacionales sin puentes ni intermediarios.</p>
+      </div>
+      <div class="bg-[#0D1B31] border border-[rgba(46,181,229,0.15)] rounded-2xl p-6 card-lift reveal group">
+        <div class="w-9 h-9 rounded-xl border border-[rgba(46,181,229,0.35)] flex items-center justify-center mb-4 text-[#2EB5E5] group-hover:scale-110 group-hover:rotate-3 group-hover:border-[rgba(46,181,229,0.6)] transition duration-300">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/><path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3"/></svg>
+        </div>
+        <h3 class="font-bold text-sm text-white mb-2">Soporte 24/7 dedicado</h3>
+        <p class="text-[13px] leading-relaxed text-[#9AAFC9]">Grupo privado en Telegram con vos y tu equipo. Respuestas de personas reales, no bots ni tickets.</p>
+      </div>
+      <div class="bg-[#0D1B31] border border-[rgba(46,181,229,0.15)] rounded-2xl p-6 card-lift reveal group">
+        <div class="w-9 h-9 rounded-xl border border-[rgba(46,181,229,0.35)] flex items-center justify-center mb-4 text-[#2EB5E5] group-hover:scale-110 group-hover:rotate-3 group-hover:border-[rgba(46,181,229,0.6)] transition duration-300">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <h3 class="font-bold text-sm text-white mb-2">Custodia y trazabilidad</h3>
+        <p class="text-[13px] leading-relaxed text-[#9AAFC9]">Control de accesos por rol, registro de cada operación y buenas prácticas de custodia de fondos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="relative py-14">
+  <div class="relative max-w-[760px] mx-auto px-6">
+    <div class="bg-[#0A1628] border border-[rgba(46,181,229,0.25)] rounded-[22px] p-8 md:p-10 glow-card" style="box-shadow:0 0 40px rgba(46,181,229,0.18);">
+      <p class="text-[11px] tracking-[0.2em] text-[#2EB5E5] font-semibold mb-2">PRECIOS CLAROS, SIN LETRAS CHICAS</p>
+      <h2 class="font-display font-bold text-[26px] md:text-[32px] leading-tight">Pagás por lo que movés. <span class="text-[#2EB5E5]">Nada más.</span></h2>
+      <p class="mt-4 text-[14px] leading-relaxed text-[#9AAFC9]">
+        COBALT URBANA es un servicio pago y lo decimos de frente: cobramos un <strong class="text-white">porcentaje sobre lo que operás</strong> — que baja a medida que tu volumen crece — más un <strong class="text-white">mantenimiento mensual de la billetera</strong> que cubre custodia, monitoreo, soporte dedicado y disponibilidad 24/7. Todo detallado antes de firmar.
+      </p>
+      <div class="grid md:grid-cols-3 gap-4 mt-8">
+        <div class="bg-[#0D1B31] border border-[rgba(46,181,229,0.18)] rounded-2xl p-4 card-lift reveal group">
+          <div class="flex items-center gap-1.5 text-[#2EB5E5] text-xs font-bold mb-3 group-hover:tracking-wider transition-all duration-300"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 4-8"/></svg> % por operación</div>
+          <p class="text-[13px] leading-relaxed text-[#8EA0BB]">Se aplica sobre el volumen recaudado. Escalonado: cuanto más movés, menos pagás.</p>
+        </div>
+        <div class="bg-[#0D1B31] border border-[rgba(46,181,229,0.18)] rounded-2xl p-4 card-lift reveal group">
+          <div class="flex items-center gap-1.5 text-[#2EB5E5] text-xs font-bold mb-3 group-hover:tracking-wider transition-all duration-300"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg> Mantenimiento mensual</div>
+          <p class="text-[13px] leading-relaxed text-[#8EA0BB]">Cargo fijo por la billetera activa: infraestructura, monitoreo y soporte real 24/7.</p>
+        </div>
+        <div class="bg-[#0D1B31] border border-[rgba(46,181,229,0.18)] rounded-2xl p-4 card-lift reveal group">
+          <div class="flex items-center gap-1.5 text-[#2EB5E5] text-xs font-bold mb-3 group-hover:tracking-wider transition-all duration-300"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Cero letra chica</div>
+          <p class="text-[13px] leading-relaxed text-[#8EA0BB]">Sin costos ocultos, sin cargos por retiro sorpresa. Lo que ves en la propuesta es lo que pagás.</p>
+        </div>
+      </div>
+      <div class="flex flex-col md:flex-row items-center gap-3 mt-8">
+        <a href="#agendar" class="inline-flex items-center gap-2 bg-[#2EB5E5] hover:bg-[#3CC2F0] text-[#070F1E] font-bold text-[13.5px] px-6 py-3 rounded-full glow-btn transition">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          Agendar llamada con un especialista
+        </a>
+        <span class="text-[11px] text-[#7A8EAD]">Simulamos costos con tu volumen real en menos de 24hs.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section class="relative py-10">
+  <div class="absolute inset-0 grid-bg opacity-30"></div>
+  <div class="relative max-w-[900px] mx-auto px-6 text-center">
+    <p class="text-[11px] tracking-[0.2em] text-[#2EB5E5] font-semibold mb-3">COBALT URBANA EN ACCIÓN</p>
+    <h2 class="font-display font-bold text-[30px] md:text-[40px] leading-tight">Así se ven millones <span class="text-[#2EB5E5]">moviéndose</span><br><span class="text-[#2EB5E5]">sin problemas</span></h2>
+    <div class="mt-8 rounded-[20px] overflow-hidden border border-[rgba(46,181,229,0.25)] bg-black relative aspect-video flex items-center justify-center glow-card">
+      <video id="presentation-video" class="w-full h-full object-cover" autoplay muted loop playsinline preload="metadata">
+        <source src="video-presentacion.mp4" type="video/mp4">
+        Tu navegador no puede reproducir este video.
+      </video>
+      <div class="absolute inset-0 bg-gradient-to-t from-[#070F1E]/40 to-transparent pointer-events-none"></div>
+      <button id="sound-toggle" type="button" class="absolute bottom-4 right-4 w-10 h-10 rounded-full bg-[#0A1628]/90 border border-[rgba(46,181,229,0.3)] flex items-center justify-center text-[#2EB5E5] hover:bg-[#0D1B31] transition" aria-label="Activar sonido" aria-pressed="false">
+        <svg id="sound-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><path d="m22 9-6 6"/><path d="m16 9 6 6"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<div class="border-y border-[rgba(46,181,229,0.12)] bg-[#08111F] overflow-hidden py-3">
+  <div class="flex whitespace-nowrap marquee">
+    <span class="flex items-center gap-8 text-[12px] tracking-[0.18em] text-[#7A8EAD]">
+      <span class="flex items-center gap-2"><span class="dot"></span> CERO BLOQUEOS SORPRESA</span>
+      <span class="flex items-center gap-2"><span class="dot"></span> COBROS Y PAGOS EN USDT</span>
+      <span class="flex items-center gap-2"><span class="dot"></span> API PROPIA</span>
+      <span class="flex items-center gap-2"><span class="dot"></span> MÉTRICAS EN TIEMPO REAL</span>
+      <span class="flex items-center gap-2"><span class="dot"></span> SOPORTE 24/7 DEDICADO</span>
+      <span class="flex items-center gap-2"><span class="dot"></span> ONBOARDING ACOMPAÑADO</span>
+      <span class="flex items-center gap-2"><span class="dot"></span> CERO BLOQUEOS SORPRESA</span>
+      <span class="flex items-center gap-2"><span class="dot"></span> COBROS Y PAGOS EN USDT</span>
+      <span class="flex items-center gap-2"><span class="dot"></span> API PROPIA</span>
+      <span class="flex items-center gap-2"><span class="dot"></span> MÉTRICAS EN TIEMPO REAL</span>
+      <span class="flex items-center gap-2"><span class="dot"></span> SOPORTE 24/7 DEDICADO</span>
+      <span class="flex items-center gap-2"><span class="dot"></span> ONBOARDING ACOMPAÑADO</span>
+    </span>
+    <span class="flex items-center gap-8 text-[12px] tracking-[0.18em] text-[#7A8EAD] ml-8">
+      <span class="flex items-center gap-2"><span class="dot"></span> CERO BLOQUEOS SORPRESA</span>
+      <span class="flex items-center gap-2"><span class="dot"></span> COBROS Y PAGOS EN USDT</span>
+      <span class="flex items-center gap-2"><span class="dot"></span> API PROPIA</span>
+      <span class="flex items-center gap-2"><span class="dot"></span> MÉTRICAS EN TIEMPO REAL</span>
+      <span class="flex items-center gap-2"><span class="dot"></span> SOPORTE 24/7 DEDICADO</span>
+      <span class="flex items-center gap-2"><span class="dot"></span> ONBOARDING ACOMPAÑADO</span>
+    </span>
+  </div>
+</div>
+
+<!-- AGENDAMIENTO -->
+<section id="agendar" class="relative py-16">
+  <div class="absolute inset-0 grid-bg opacity-30"></div>
+  <div class="relative max-w-[1100px] mx-auto px-6">
+    <div class="text-center max-w-[720px] mx-auto">
+      <div class="inline-flex items-center gap-1.5 border border-[rgba(46,181,229,0.35)] bg-[#0D1B31] rounded-full px-3 py-1 mb-4">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2EB5E5" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <span class="text-[10px] tracking-[0.15em] text-[#2EB5E5] font-semibold">CUPOS LIMITADOS ESTE MES</span>
+      </div>
+      <h2 class="font-display font-bold text-[30px] md:text-[42px] leading-tight">Agendá una llamada<br><span class="text-[#2EB5E5]">con nuestros especialistas</span>.</h2>
+      <p class="mt-3 text-sm leading-relaxed text-[#8EA0BB]">Elegí el día y horario que te quede cómodo. En la llamada analizamos tu operación, respondemos tus dudas y te entregamos una propuesta a medida. Si no es para vos, te lo decimos de frente.</p>
+      <ul class="mt-6 text-left max-w-[520px] mx-auto space-y-2">
+        <li class="flex items-center gap-2 text-[13px] text-[#C2D0E6]"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2EB5E5" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg> Llamada 1 a 1 con un especialista de cuentas COBALT URBANA</li>
+        <li class="flex items-center gap-2 text-[13px] text-[#C2D0E6]"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2EB5E5" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg> Diagnóstico gratuito de tu operación actual (sin compromiso)</li>
+        <li class="flex items-center gap-2 text-[13px] text-[#C2D0E6]"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2EB5E5" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg> Simulación de costos con tu volumen real y plan de onboarding</li>
+      </ul>
+    </div>
+
+    <div class="mt-12 max-w-[1000px] mx-auto bg-white rounded-xl overflow-hidden border border-white/10">
+      <div class="calendly-inline-widget" data-url="https://calendly.com/gestionloly/nueva-reunion" title="Agendar una nueva reunión con Gestión"></div>
+    </div>
+    <p class="text-center text-[11px] text-[#6B8AAD] mt-4">Si el calendario no carga, <a href="https://calendly.com/gestionloly/nueva-reunion" target="_blank" rel="noopener noreferrer" class="text-[#2EB5E5] hover:underline">abrilo en una nueva pestaña</a>.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t border-[rgba(46,181,229,0.12)] py-8">
+  <div class="max-w-[1220px] mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-2">
+      <svg width="28" height="22" viewBox="0 0 38 28" fill="none"><path d="M4 26 L19 2 L34 26" stroke="#2EB5E5" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/><rect x="14.5" y="13.5" width="3.2" height="12.2" rx="1.4" fill="#2EB5E5"/><rect x="20.3" y="10.2" width="3.2" height="15.5" rx="1.4" fill="#2EB5E5"/></svg>
+      <span class="font-display font-bold text-sm tracking-widest text-[#2EB5E5]">COBALT URBANA</span>
+    </div>
+    <p class="text-[11px] text-[#7A8EAD]">© 2026 COBALT URBANA · Todos los derechos reservados · Infraestructura financiera de alto volumen</p>
+  </div>
+</footer>
+
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<script>
+const presentationVideo = document.getElementById('presentation-video');
+const soundToggle = document.getElementById('sound-toggle');
+const soundIcon = document.getElementById('sound-icon');
+
+soundToggle.addEventListener('click', () => {
+  presentationVideo.muted = !presentationVideo.muted;
+  const soundIsOn = !presentationVideo.muted;
+  soundToggle.setAttribute('aria-pressed', String(soundIsOn));
+  soundToggle.setAttribute('aria-label', soundIsOn ? 'Silenciar video' : 'Activar sonido');
+  soundIcon.innerHTML = soundIsOn
+    ? '<path d="M11 5 6 9H2v6h4l5 4V5Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/>'
+    : '<path d="M11 5 6 9H2v6h4l5 4V5Z"/><path d="m22 9-6 6"/><path d="m16 9 6 6"/>';
+});
+
+const revealEls = document.querySelectorAll('.reveal');
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const idx = Array.from(revealEls).indexOf(el) % 6;
+        el.style.transitionDelay = (idx * 60) + 'ms';
+        el.classList.add('visible');
+        io.unobserve(el);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach((el) => io.observe(el));
+} else {
+  revealEls.forEach((el) => el.classList.add('visible'));
+}
+</script>
+</body>
+</html>
