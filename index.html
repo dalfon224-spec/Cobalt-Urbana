@@ -10,6 +10,20 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1556371032264770');
+fbq('track', 'PageView');
+</script>
+<!-- End Meta Pixel Code -->
 <script>
 tailwind.config = {
   theme: {
@@ -63,6 +77,9 @@ body { background:#070F1E; color:#E8EEF6; overflow-x:hidden; }
 </style>
 </head>
 <body class="font-sans antialiased">
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1556371032264770&ev=PageView&noscript=1"
+/></noscript>
 <!-- HEADER -->
 <header class="relative z-50 border-b border-white/[0.04]">
   <div class="absolute inset-0 grid-bg opacity-60 pointer-events-none"></div>
