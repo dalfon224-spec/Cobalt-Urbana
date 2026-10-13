@@ -165,7 +165,7 @@ src="https://www.facebook.com/tr?id=1556371032264770&ev=PageView&noscript=1"
 </section>
 
 <!-- PAIN POINTS -->
-<section class="relative py-16">
+<section id="pain-points" class="relative py-16">
   <div class="absolute inset-0 grid-bg opacity-40"></div>
   <div class="relative max-w-[1100px] mx-auto px-6">
     <div class="text-center mb-10">
@@ -173,29 +173,65 @@ src="https://www.facebook.com/tr?id=1556371032264770&ev=PageView&noscript=1"
       <h2 class="font-display font-bold text-[30px] md:text-[42px] leading-tight">Cada hora frenada <span class="text-[#2EB5E5]">te cuesta</span><br><span class="text-[#2EB5E5]">plata</span>.</h2>
     </div>
     <div class="grid md:grid-cols-2 gap-4">
-      <div class="bg-[#0D1B31] border border-[rgba(46,181,229,0.16)] rounded-2xl p-5 flex gap-3 card-lift reveal group">
-        <span class="flex-shrink-0 w-7 h-7 rounded-full border border-[rgba(46,181,229,0.4)] flex items-center justify-center text-xs font-bold text-[#2EB5E5] group-hover:border-[#2EB5E5] group-hover:bg-[rgba(46,181,229,0.12)] transition duration-300">1</span>
-        <p class="text-[14px] leading-relaxed text-[#C2D0E6]">Comprás cuentas de terceros y se caen sin aviso. Cada caída frena tu operación y te hace perder ventas en tiempo real.</p>
+      <div class="bg-[#0D1B31] border border-[rgba(46,181,229,0.16)] rounded-2xl p-6 card-lift reveal group">
+        <div class="flex items-start justify-between mb-4">
+          <div class="w-9 h-9 rounded-xl border border-[rgba(46,181,229,0.35)] flex items-center justify-center text-[#2EB5E5] group-hover:scale-110 group-hover:rotate-3 group-hover:border-[rgba(46,181,229,0.6)] transition duration-300">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="7" rx="2"/><rect x="2" y="14" width="20" height="7" rx="2"/><path d="M6 6.5h.01M6 17.5h.01"/><path d="M3 2l18 20"/></svg>
+          </div>
+          <span class="text-[11px] font-display font-bold tracking-[0.18em] text-[rgba(46,181,229,0.45)] group-hover:text-[rgba(46,181,229,0.8)] transition duration-300">01</span>
+        </div>
+        <h3 class="font-bold text-sm text-white mb-2">Cuentas de terceros que se caen solas</h3>
+        <p class="text-[13px] leading-relaxed text-[#9AAFC9]">Cada caída frena tu operación y te hace perder ventas en tiempo real. Y no tenés forma de anticiparlo.</p>
       </div>
-      <div class="bg-[#0D1B31] border border-[rgba(46,181,229,0.16)] rounded-2xl p-5 flex gap-3 card-lift reveal group">
-        <span class="flex-shrink-0 w-7 h-7 rounded-full border border-[rgba(46,181,229,0.4)] flex items-center justify-center text-xs font-bold text-[#2EB5E5] group-hover:border-[#2EB5E5] group-hover:bg-[rgba(46,181,229,0.12)] transition duration-300">2</span>
-        <p class="text-[14px] leading-relaxed text-[#C2D0E6]">Cuando la cuenta se bloquea, la plata que había adentro queda retenida. No sabés cuándo la recuperarás — ni si la recuperarás.</p>
+      <div class="bg-[#0D1B31] border border-[rgba(46,181,229,0.16)] rounded-2xl p-6 card-lift reveal group">
+        <div class="flex items-start justify-between mb-4">
+          <div class="w-9 h-9 rounded-xl border border-[rgba(46,181,229,0.35)] flex items-center justify-center text-[#2EB5E5] group-hover:scale-110 group-hover:rotate-3 group-hover:border-[rgba(46,181,229,0.6)] transition duration-300">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><path d="M12 15v2"/></svg>
+          </div>
+          <span class="text-[11px] font-display font-bold tracking-[0.18em] text-[rgba(46,181,229,0.45)] group-hover:text-[rgba(46,181,229,0.8)] transition duration-300">02</span>
+        </div>
+        <h3 class="font-bold text-sm text-white mb-2">Plata retenida sin fecha de salida</h3>
+        <p class="text-[13px] leading-relaxed text-[#9AAFC9]">Cuando la cuenta se bloquea, el saldo queda adentro. No sabés cuándo lo recuperás — ni si lo recuperás.</p>
       </div>
-      <div class="bg-[#0D1B31] border border-[rgba(46,181,229,0.16)] rounded-2xl p-5 flex gap-3 card-lift reveal group">
-        <span class="flex-shrink-0 w-7 h-7 rounded-full border border-[rgba(46,181,229,0.4)] flex items-center justify-center text-xs font-bold text-[#2EB5E5] group-hover:border-[#2EB5E5] group-hover:bg-[rgba(46,181,229,0.12)] transition duration-300">3</span>
-        <p class="text-[14px] leading-relaxed text-[#C2D0E6]">No tenés métricas confiables. La conciliación depende de planillas, capturas y del humor del que las carga.</p>
+      <div class="bg-[#0D1B31] border border-[rgba(46,181,229,0.16)] rounded-2xl p-6 card-lift reveal group">
+        <div class="flex items-start justify-between mb-4">
+          <div class="w-9 h-9 rounded-xl border border-[rgba(46,181,229,0.35)] flex items-center justify-center text-[#2EB5E5] group-hover:scale-110 group-hover:rotate-3 group-hover:border-[rgba(46,181,229,0.6)] transition duration-300">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/></svg>
+          </div>
+          <span class="text-[11px] font-display font-bold tracking-[0.18em] text-[rgba(46,181,229,0.45)] group-hover:text-[rgba(46,181,229,0.8)] transition duration-300">03</span>
+        </div>
+        <h3 class="font-bold text-sm text-white mb-2">Conciliación a mano y sin métricas</h3>
+        <p class="text-[13px] leading-relaxed text-[#9AAFC9]">Todo depende de planillas, capturas y del humor del que las carga. Nunca sabés el número real del día.</p>
       </div>
-      <div class="bg-[#0D1B31] border border-[rgba(46,181,229,0.16)] rounded-2xl p-5 flex gap-3 card-lift reveal group">
-        <span class="flex-shrink-0 w-7 h-7 rounded-full border border-[rgba(46,181,229,0.4)] flex items-center justify-center text-xs font-bold text-[#2EB5E5] group-hover:border-[#2EB5E5] group-hover:bg-[rgba(46,181,229,0.12)] transition duration-300">4</span>
-        <p class="text-[14px] leading-relaxed text-[#C2D0E6]">Nadie te avisa antes del bloqueo. Te enterás cuando los clientes ya no pueden depositar y el WhatsApp explota.</p>
+      <div class="bg-[#0D1B31] border border-[rgba(46,181,229,0.16)] rounded-2xl p-6 card-lift reveal group">
+        <div class="flex items-start justify-between mb-4">
+          <div class="w-9 h-9 rounded-xl border border-[rgba(46,181,229,0.35)] flex items-center justify-center text-[#2EB5E5] group-hover:scale-110 group-hover:rotate-3 group-hover:border-[rgba(46,181,229,0.6)] transition duration-300">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+          </div>
+          <span class="text-[11px] font-display font-bold tracking-[0.18em] text-[rgba(46,181,229,0.45)] group-hover:text-[rgba(46,181,229,0.8)] transition duration-300">04</span>
+        </div>
+        <h3 class="font-bold text-sm text-white mb-2">Nadie te avisa antes del bloqueo</h3>
+        <p class="text-[13px] leading-relaxed text-[#9AAFC9]">Te enterás cuando los clientes ya no pueden depositar y el WhatsApp explota. Siempre tarde, siempre a las apuradas.</p>
       </div>
-      <div class="bg-[#0D1B31] border border-[rgba(46,181,229,0.16)] rounded-2xl p-5 flex gap-3 card-lift reveal group">
-        <span class="flex-shrink-0 w-7 h-7 rounded-full border border-[rgba(46,181,229,0.4)] flex items-center justify-center text-xs font-bold text-[#2EB5E5] group-hover:border-[#2EB5E5] group-hover:bg-[rgba(46,181,229,0.12)] transition duration-300">5</span>
-        <p class="text-[14px] leading-relaxed text-[#C2D0E6]">Cuando algo falla, no hay a quién llamar. Buscás soluciones a las 3am mientras la caja sigue parada.</p>
+      <div class="bg-[#0D1B31] border border-[rgba(46,181,229,0.16)] rounded-2xl p-6 card-lift reveal group">
+        <div class="flex items-start justify-between mb-4">
+          <div class="w-9 h-9 rounded-xl border border-[rgba(46,181,229,0.35)] flex items-center justify-center text-[#2EB5E5] group-hover:scale-110 group-hover:rotate-3 group-hover:border-[rgba(46,181,229,0.6)] transition duration-300">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/><path d="M2 2l20 20"/></svg>
+          </div>
+          <span class="text-[11px] font-display font-bold tracking-[0.18em] text-[rgba(46,181,229,0.45)] group-hover:text-[rgba(46,181,229,0.8)] transition duration-300">05</span>
+        </div>
+        <h3 class="font-bold text-sm text-white mb-2">Sin soporte cuando algo falla</h3>
+        <p class="text-[13px] leading-relaxed text-[#9AAFC9]">No hay a quién llamar. Buscás soluciones a las 3am mientras la caja sigue parada y el volumen se te escapa.</p>
       </div>
-      <div class="bg-[#0D1B31] border border-[rgba(46,181,229,0.16)] rounded-2xl p-5 flex gap-3 card-lift reveal group">
-        <span class="flex-shrink-0 w-7 h-7 rounded-full border border-[rgba(46,181,229,0.4)] flex items-center justify-center text-xs font-bold text-[#2EB5E5] group-hover:border-[#2EB5E5] group-hover:bg-[rgba(46,181,229,0.12)] transition duration-300">6</span>
-        <p class="text-[14px] leading-relaxed text-[#C2D0E6]">Corrés atrás del 'mejor porcentaje' y perdés de vista lo que realmente cuesta: la plata frenada y la operación rota.</p>
+      <div class="bg-[#0D1B31] border border-[rgba(46,181,229,0.16)] rounded-2xl p-6 card-lift reveal group">
+        <div class="flex items-start justify-between mb-4">
+          <div class="w-9 h-9 rounded-xl border border-[rgba(46,181,229,0.35)] flex items-center justify-center text-[#2EB5E5] group-hover:scale-110 group-hover:rotate-3 group-hover:border-[rgba(46,181,229,0.6)] transition duration-300">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 5L5 19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
+          </div>
+          <span class="text-[11px] font-display font-bold tracking-[0.18em] text-[rgba(46,181,229,0.45)] group-hover:text-[rgba(46,181,229,0.8)] transition duration-300">06</span>
+        </div>
+        <h3 class="font-bold text-sm text-white mb-2">Corrés atrás del "mejor porcentaje"</h3>
+        <p class="text-[13px] leading-relaxed text-[#9AAFC9]">Y perdés de vista lo que realmente cuesta: la plata frenada, la operación rota y los clientes que no vuelven.</p>
       </div>
     </div>
   </div>
